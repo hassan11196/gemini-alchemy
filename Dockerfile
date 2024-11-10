@@ -2,8 +2,12 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-
-RUN sudo apt-get update
+# install rust
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+RUN rustup default nightly
 RUN sudo apt-get install graphviz -y
 
 COPY requirements.txt .
