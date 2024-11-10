@@ -1,5 +1,4 @@
 fastapi
-graphviz
 python-multipart
 uvicorn
 genai
