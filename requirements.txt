@@ -4,3 +4,4 @@ uvicorn
 graphviz
 python_dotenv
 mermaid-py
+google-generativeai
