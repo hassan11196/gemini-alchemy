@@ -1,6 +1,5 @@
 fastapi
 python-multipart
 uvicorn
-genai
 python_dotenv
 mermaid-py
