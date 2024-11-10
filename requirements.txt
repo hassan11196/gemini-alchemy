@@ -1,5 +1,6 @@
 fastapi
 python-multipart
 uvicorn
+graphviz
 python_dotenv
 mermaid-py
