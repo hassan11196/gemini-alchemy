@@ -41,7 +41,7 @@ def generate_mind_map_image(markdown_text: str) -> str:
     # 
 
 
-    dot = graphviz.Digraph(comment="Mind Map", format="png",  node_attr={'shape': 'ellipse', 'fontsize': '12'}, graph_attr={'splines': 'ortho'
+    dot = graphviz.Digraph(comment="Mind Map", format="png",  node_attr={'shape': 'ellipse', 'fontsize': '12'}, graph_attr={'splines': 'ortho',
                             graph_attr={"size": "1920,1080"}) 
 
     # Parse the markdown to extract headings
