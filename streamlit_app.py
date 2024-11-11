@@ -53,10 +53,17 @@ st.session_state["tree_depth"] = tree_depth
 if st.button("Generate Markdown from Gemini"):
     if user_input:
         try:
-            gemini_prompt = f"Generate a mind map for the following topic in Markdown format only, use # and then - to show hierarchy and only text, no special characters.\
+            gemini_prompt = f"Generate a mind map for the following topic in Markdown format only, use # to show hierarchy and only text, no special characters.\
             Make sure it's not flat, it increases with each depth level. Make it more long than wide; you can only double nodes each tree level, and maximum depth of tree should be {tree_depth}. Here's topic details for mindmap: {user_input}"
             gemini_response = model.generate_content(gemini_prompt)
             markdown_text = gemini_response.text
+
+            gemini_summary_prompt = f"**Summary:** give 500 character long summary of the topic presented in markdown format :{
+                gemini_response.text}"
+            gemini_summary_response = model.generate_content(
+                gemini_summary_prompt)
+            summary_text = gemini_summary_response.text
+            st.session_state["summary_text"] = summary_text
 
             # Display Gemini's Markdown output
             st.subheader("Generated Markdown by Google Gemini")
@@ -75,6 +82,7 @@ if "markdown_text" in st.session_state:
     st.subheader("Step 2: View Mind Map")
     # Display Markdown output again
     st.code(st.session_state["markdown_text"], language="markdown")
+    st.write(st.session_state["summary_text"])
 
     if st.button("Generate Mind Map"):
         payload = {"markdown_text": st.session_state["markdown_text"]}
