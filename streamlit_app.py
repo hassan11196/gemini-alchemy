@@ -18,7 +18,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 mindmap_url = API_URL + "/generate_mindmap"
 
 # Header Section
-st.title("Mind Map Generator with AI Assistance")
+st.title("Gemini Alchemy: Mind Map Generator with AI Assistance")
 st.write(
     "Generate mind maps by describing your topic. This app uses the Gemini model to create a Markdown-based mind map "
     "description, which is then converted into a dynamic mind map visualization."
